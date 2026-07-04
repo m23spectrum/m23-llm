@@ -92,15 +92,23 @@ def apply_m23_init(model: nn.Module, seed: Optional[int] = None, verbose: bool =
     embedding_count = 0
 
     # Получаем n_layer из конфигурации модели для масштабирования residual-проекций
-    n_layer = getattr(model.config, "n_layer", None) if hasattr(model, "config") else None
+    # Поддерживаем как классический GPT-2 (n_layer), так и современные Qwen/LLaMA (num_hidden_layers)
+    n_layer = getattr(model.config, "num_hidden_layers", getattr(model.config, "n_layer", None)) if hasattr(model, "config") else None
 
     for i, (name, module) in enumerate(model.named_modules()):
         layer_seed = (seed + i) if seed is not None else None
 
         if isinstance(module, (nn.Linear, Conv1D)):
             scale = 1.0
-            if n_layer is not None and any(proj_name in name for proj_name in ["attn.c_proj", "mlp.c_proj"]):
+            
+            # Масштабирование остаточных выходов для глубоких сетей (c_proj для GPT-2, o_proj/down_proj для Qwen/LLaMA)
+            if n_layer is not None and any(proj_name in name for proj_name in ["attn.c_proj", "mlp.c_proj", "o_proj", "down_proj"]):
                 scale = 1.0 / np.sqrt(2.0 * n_layer)
+            
+            # Адаптация под SwiGLU MLP слои (gate_proj и up_proj перемножаются поэлементно, корректируем дисперсию)
+            elif any(proj_name in name for proj_name in ["gate_proj", "up_proj"]):
+                scale = 1.0 / np.sqrt(2.0)
+                
             m23_init_linear(module, seed=layer_seed, scale=scale)
             linear_count += 1
 
