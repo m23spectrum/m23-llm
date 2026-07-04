@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "m23-llm"
-version = "1.0.0"
+version = "1.1.0"
 description = "Mathieu Group M23 Weight Initialization for PyTorch Transformers and LLMs"
 readme = "README.md"
 license = {text = "MIT"}
