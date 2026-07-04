@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "m23-llm"
+version = "1.0.0"
+description = "Mathieu Group M23 Weight Initialization for PyTorch Transformers and LLMs"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "M23-Spectrum Team", email = "contact@m23spectrum.dev"}
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Mathematics",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "numpy>=1.19.0",
+    "torch>=1.9.0",
+    "transformers>=4.0.0",
+]
+
+[tool.setuptools.py-modules]
+modules = ["m23_init", "m23_spectrum"]
