@@ -33,5 +33,5 @@ dependencies = [
     "transformers>=4.0.0",
 ]
 
-[tool.setuptools.py-modules]
-modules = ["m23_init", "m23_spectrum"]
+[tool.setuptools]
+py-modules = ["m23_init", "m23_spectrum"]
