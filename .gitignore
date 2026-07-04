@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+data_cache/
+.ipynb_checkpoints/
+comparison_results.json
+.vscode/
+.idea/
+*.log
