@@ -121,12 +121,12 @@ To verify the scalability of M23-Spectrum on modern transformer architectures wi
 
 Both models showed almost identical convergence. M23-Spectrum is highly competitive while enforcing strict mathematical properties on the weights (condition number $\approx 1.0$).
 
-![Qwen-Micro Loss](pretrain_loss_comparison.png)
+![Qwen-Micro Loss](pretrain_loss_comparison_en.png)
 
 ### Gradient Stability:
 M23-Spectrum maintained a stable gradient norm channel, avoiding early explosions.
 
-![Qwen-Micro Gradients](pretrain_grad_comparison.png)
+![Qwen-Micro Gradients](pretrain_grad_comparison_en.png)
 
 ### Generation Examples (Greedy Decoding, do_sample=False)
 
