@@ -103,7 +103,7 @@ On a 3000-step run, orthogonal methods showed a major advantage:
 * On the short distance (3000 steps), `Default GPT-2` showed a slightly lower loss (**3.131**) due to the plasticity of random normal noise at small scales.
 * `M23-Spectrum` and `Standard Orthogonal` converged tightly around **3.338–3.400**, outperforming `Xavier Uniform` (3.41).
 
-![Initialization Comparison](comparison.png)
+![Initialization Comparison](comparison_en.png)
 
 ---
 
