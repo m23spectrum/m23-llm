@@ -153,7 +153,7 @@ When scaling context length to **2000+ tokens**, the balance shifts in favor of 
 
 </details>
 
-<details>
+<details open>
 <summary><b>🇷🇺 Русский (Нажмите, чтобы развернуть/свернуть)</b></summary>
 
 # M23-LLM: Алгебраическая инициализация весов (группа Матьё M23) и диффузионное обучение (dLLM) для GPT-2, Qwen и LLaMA
